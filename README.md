@@ -4,7 +4,7 @@ A simple tools to compare two files containing k8s resources.
 
 ## Install
 
-TODO
+Download the release that suits your needs from the [releases page](https://github.com/eddycharly/k8s-yaml-diff/releases).
 
 ## Invoke
 
