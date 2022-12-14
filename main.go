@@ -63,11 +63,12 @@ func loadObjects(p string, gvks map[string]Info, n bool) map[string]string {
 		panic(err)
 	}
 	objects := map[string]string{}
-	for _, part := range strings.Split(string(data), "---") {
-		part = strings.TrimSpace(part) + "\n"
+	for _, part := range strings.Split(string(data), "---\n") {
+		part = strings.TrimSpace(part)
 		if len(part) == 0 {
 			continue
 		}
+		part += "\n"
 		obj := &unstructured.Unstructured{}
 		dec := yaml.NewDecodingSerializer(unstructured.UnstructuredJSONScheme)
 		runtimeObject, gvk, err := dec.Decode([]byte(part), nil, obj)
